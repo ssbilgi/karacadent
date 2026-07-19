@@ -1,0 +1,10 @@
+# Karaca Dental Diş Laboratuvarı Robots.txt Altyapısı
+User-agent: *
+Allow: /
+
+# Arama motorlarının yönetim panelini ve giriş sayfasını indexlemesini engelle
+Disallow: /admin.html
+Disallow: /login.html
+
+# Site haritanızın yerini arama motorlarına bildiriyoruz (Domain adresini aldığında burayı güncelleyeceksin)
+Sitemap: https://karacadental.com
