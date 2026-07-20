@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelişmiş Yönetim Kontrol Paneli (CMS) - Karaca Dental</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 🔒 1. AŞAMA: ŞİFRESİZ ERİŞİMLERİ BLOKE EDEN GÜVENLİK EKRANI -->
+    <div id="lock-screen" class="admin-lock-screen">
+        <h2 style="margin-bottom:10px;">🔒 Yönetim Girişi</h2>
+        <p style="color:#64748b; font-size:14px; margin-bottom:20px;">Karaca Dental İçerik Yönetim Sistemi</p>
+        <input type="text" id="username" placeholder="Kullanıcı Adı">
+        <input type="password" id="password" placeholder="Şifre">
+        <button class="btn-detail" style="border:none; cursor:pointer;" onclick="panelGirisKontrol()">Güvenli Giriş Yap</button>
+        <p id="hata" style="color:#ef4444; margin-top:15px; display:none; font-weight:600;">⚠️ Kullanıcı adı veya şifre yanlış!</p>
+    </div>
+
+    <!-- 🛠️ 2. AŞAMA: SADECE GİRİŞ YAPILDIĞINDA AÇILAN SİMETRİK PANEL GÖVDESİ -->
+    <div id="panel-workspace" style="display:none;">
+        <header>
+            <nav>
+                <div class="logo">⚙️ Karaca Dental CMS - Tam Yönetim</div>
+                <div class="nav-links">
+                    <a href="index.html" target="_blank">💻 Sitemi Gör</a>
+                    <a href="#" onclick="panelCikisYap()" style="color:#ef4444;">🔒 Oturumu Kapat</a>
+                </div>
+            </nav>
+        </header>
+        <main class="admin-grid-layout">
+            <!-- Sol Sabit Menü -->
+            <div class="admin-sidebar" style="background:#ffffff; padding:20px; border-radius:12px; box-shadow:0 4px 6px rgba(0,0,0,0.02); height:fit-content; border:1px solid #e2e8f0;">
+                <p style="font-size:13px; color:#0284c7; font-weight:bold; background:#e0f2fe; padding:10px; border-radius:6px; text-align:center;">🎛️ Sistem Veri Akışı Canlı</p>
+            </div>
+            
+            <!-- Sağ Düzenleme Alanları -->
+            <div class="admin-card-body">
+                <div class="success-alert" id="alert-box">✅ Harika! Tüm değişiklikler tarayıcı önbelleğini kırarak bütün sayfalara, başıklara, sosyal medya hesaplarına ve videolara uygulandı!</div>
+                <h2>✍️ Sitenin Tüm Alanlarını Eksiksiz Yönetin</h2><br>
+                
+                <h3>📞 1. Kurumsal İletişim Bilgileri</h3>
+                <div class="form-group"><label>Telefon Numarası 1</label><input type="text" id="p-tel1"></div>
+                <div class="form-group"><label>Telefon Numarası 2</label><input type="text" id="p-tel2"></div>
+                <div class="form-group"><label>Kurumsal E-Posta Adresi</label><input type="text" id="p-email"></div>
+                <div class="form-group"><label>Açık Adres Bilgisi</label><textarea id="p-adres" rows="2"></textarea></div>
+                <div class="form-group"><label>🗺️ Google Harita Gömme (Embed Code) veya Linki</label><textarea id="p-harita" rows="2"></textarea></div>
+                
+                <h3>🌐 2. Sosyal Medya & Harita Ağları Yönetimi</h3>
+                <div class="form-group"><label>Instagram Profil Linki</label><input type="text" id="p-instagram"></div>
+                <div class="form-group"><label>Facebook Sayfa Linki</label><input type="text" id="p-facebook"></div>
+                <div class="form-group"><label>YouTube Kanal Linki</label><input type="text" id="p-youtube"></div>
+                <div class="form-group"><label>Google Benim İşletmem Profil Linki</label><input type="text" id="p-googleIsletme"></div>
+
+                <h3>🏠 3. Ana Sayfa & Genel Kurumsal İçerikler</h3>
+                <div class="form-group"><label>Ana Sayfa Büyük Başlık (Hero Title)</label><input type="text" id="p-heroTitle"></div>
+                <div class="form-group"><label>Ana Sayfa Giriş Açıklama Metni</label><textarea id="p-heroDesc" rows="3"></textarea></div>
+                <div class="form-group"><label>📜 Hakkımızda Sayfası Kurumsal Makalesi (Tüm Gövde Metni)</label><textarea id="p-hakkimizdaText" rows="5"></textarea></div>
+
+                <h3>💎 4. 6 Büyük Hizmet Detay Sayfasının Başlık, Makale ve Video Yönetimi</h3>
+                
+                <h4 style="color:#0284c7; margin-bottom:10px; text-align:left;">1. Zirkonyum Diş Sayfası Ayarları</h4>
+                <div class="form-group"><label>Zirkonyum Sayfa Başlığı</label><input type="text" id="p-zirTitle"></div>
+                <div class="form-group"><label>Zirkonyum Detay Makalesi</label><textarea id="p-zirLong" rows="4"></textarea></div>
+                <div class="form-group"><label>Zirkonyum YouTube Video Iframe Kodu (Veya Linki)</label><textarea id="p-zirVid" rows="2"></textarea></div>
+                <hr style="margin:20px 0; border-color:#e2e8f0;">
+
+                <h4 style="color:#0284c7; margin-bottom:10px; text-align:left;">2. Cam Seramik Sayfası Ayarları</h4>
+                <div class="form-group"><label>Cam Seramik Sayfa Başlığı</label><input type="text" id="p-camTitle"></div>
+                <div class="form-group"><label>Cam Seramik Detay Makalesi</label><textarea id="p-camLong" rows="4"></textarea></div>
+                <div class="form-group"><label>Cam Seramik YouTube Video Iframe Kodu (Veya Linki)</label><textarea id="p-camVid" rows="2"></textarea></div>
+                <hr style="margin:20px 0; border-color:#e2e8f0;">
+
+                <h4 style="color:#0284c7; margin-bottom:10px; text-align:left;">3. Ti-Bar Custom Abutment Sayfası Ayarları</h4>
+                <div class="form-group"><label>Ti-Bar Sayfa Başlığı</label><input type="text" id="p-tibarTitle"></div>
+                <div class="form-group"><label>Ti-Bar Detay Makalesi</label><textarea id="p-tibarLong" rows="4"></textarea></div>
+                <div class="form-group"><label>Ti-Bar YouTube Video Iframe Kodu (Veya Linki)</label><textarea id="p-tibarVid" rows="2"></textarea></div>
+                <hr style="margin:20px 0; border-color:#e2e8f0;">
+                <h4 style="color:#0284c7; margin-bottom:10px; text-align:left;">4. Porselen Lamine Veneer Sayfası Ayarları</h4>
+                <div class="form-group"><label>Lamine Sayfa Başlığı</label><input type="text" id="p-lamTitle"></div>
+                <div class="form-group"><label>Lamine Detay Makalesi</label><textarea id="p-lamLong" rows="4"></textarea></div>
+                <div class="form-group"><label>Lamine YouTube Video Iframe Kodu (Veya Linki)</label><textarea id="p-lamVid" rows="2"></textarea></div>
+                
+                <hr style="margin:20px 0; border-color:#e2e8f0;">
+                <h4 style="color:#0284c7; margin-bottom:10px; text-align:left;">5. Hibrit ve Akrilik Protezler Sayfası Ayarları</h4>
+                <div class="form-group"><label>Hibrit Protez Sayfa Başlığı</label><input type="text" id="p-hibTitle"></div>
+                <div class="form-group"><label>Hibrit Protez Detay Makalesi</label><textarea id="p-hibLong" rows="4"></textarea></div>
+                <div class="form-group"><label>Hibrit Protez YouTube Video Iframe Kodu (Veya Linki)</label><textarea id="p-hibVid" rows="2"></textarea></div>
+                
+                <hr style="margin:20px 0; border-color:#e2e8f0;">
+                <h4 style="color:#0284c7; margin-bottom:10px; text-align:left;">6. Metal Destekli Porselen Sayfası Ayarları</h4>
+                <div class="form-group"><label>Metal Porselen Sayfa Başlığı</label><input type="text" id="p-porTitle"></div>
+                <div class="form-group"><label>Metal Porselen Detay Makalesi</label><textarea id="p-porLong" rows="4"></textarea></div>
+                <div class="form-group"><label>Metal Porselen YouTube Video Iframe Kodu (Veya Linki)</label><textarea id="p-porVid" rows="2"></textarea></div>
+
+                <button class="btn-save" style="width:100%; font-size:17px; padding:15px; margin-top:20px;" onclick="kaydetVeDagit()">💾 Tüm Değişiklikleri Sitede Canlıya Al</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- 🧠 GELİŞMİŞ OTURUM KORUMASI VE VERİ AKTARIM MOTORU -->
+    <script>
+        const fields = [
+            'tel1','tel2','email','adres','harita',
+            'instagram','facebook','youtube','googleIsletme',
+            'heroTitle','heroDesc','hakkimizdaText',
+            'zirTitle','zirLong','zirVid',
+            'camTitle','camLong','camVid',
+            'tibarTitle','tibarLong','tibarVid',
+            'lamTitle','lamLong','lamVid',
+            'hibTitle','hibLong','hibVid',
+            'porTitle','porLong','porVid'
+        ];
+        
+        window.onload = function() {
+            if(sessionStorage.getItem('karaca_admin_oturum') === 'acik') {
+                workspaceAktivasyonu();
+            }
+        };
+
+        function panelGirisKontrol() {
+            const u = document.getElementById('username').value;
+            const p = document.getElementById('password').value;
+            if(u === 'ssbilgi.com' && p === '1999') {
+                sessionStorage.setItem('karaca_admin_oturum', 'acik');
+                workspaceAktivasyonu();
+            } else { 
+                document.getElementById('hata').style.display = 'block'; 
+            }
+        }
+
+        function workspaceAktivasyonu() {
+            document.getElementById('lock-screen').style.display = 'none';
+            document.getElementById('panel-workspace').style.display = 'block';
+            
+            // Tüm alanları tarayıcı hafızasından veya varsayılan kurumsal değerlerden oku
+            fields.forEach(function(f) {
+                let defaultVal = "";
+                if(f==='zirTitle') defaultVal="💎 Zirkonyum Diş Sektörel Çözümlerimiz";
+                if(f==='camTitle') defaultVal="✨ Cam Seramik Restorasyon Çözümlerimiz";
+                if(f==='tibarTitle') defaultVal="🔩 Ti-Bar ve Custom Abutment Teknolojimiz";
+                if(f==='lamTitle') defaultVal="🦷 Porselen Lamine Veneer Çözümlerimiz";
+                if(f==='hibTitle') defaultVal="🏗️ Hibrit ve Akrilik Protez Çözümlerimiz";
+                if(f==='porTitle') defaultVal="🔥 Metal Destekli Porselen Çözümlerimiz";
+                
+                if(f==='zirVid' || f==='camVid' || f==='tibarVid' || f==='lamVid' || f==='hibVid' || f==='porVid') {
+                    defaultVal = 'https://youtube.com';
+                }
+
+                document.getElementById('p-'+f).value = localStorage.getItem(f) || defaultVal;
+            });
+        }
+
+        function kaydetVeDagit() {
+            localStorage.setItem('karaca_panel_degisti', 'evet');
+            
+            fields.forEach(function(f) {
+                localStorage.setItem(f, document.getElementById('p-'+f).value);
+            });
+            
+            document.getElementById('alert-box').style.display = 'block';
+            window.scrollTo({top: 0, behavior: 'smooth'});
+            
+            setTimeout(function() { 
+                document.getElementById('alert-box').style.display = 'none';
+                window.location.reload();
+            }, 1200);
+        }
+
+        function panelCikisYap() {
+            sessionStorage.removeItem('karaca_admin_oturum');
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>
+<!-- ADMIN PANEL SAYFA SONU -->
