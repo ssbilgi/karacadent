@@ -1,0 +1,78 @@
+/* Genel Ayarlar */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+body { background-color: #f8fafc; color: #1e293b; line-height: 1.7; display: flex; flex-direction: column; min-height: 100vh; }
+main { flex: 1; max-width: 1200px; width: 100%; margin: 40px auto; padding: 0 20px; }
+
+/* Üst Menü */
+header { background-color: #ffffff; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+nav { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+.logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-img { height: 45px; width: auto; }
+.logo-text { font-size: 22px; font-weight: 800; color: #0284c7; }
+.menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+.menu-toggle span { display: block; width: 28px; height: 3px; background-color: #0284c7; border-radius: 2px; }
+.nav-links { display: flex; gap: 25px; }
+.nav-links a { text-decoration: none; color: #64748b; font-weight: 600; transition: 0.3s; }
+.nav-links a:hover { color: #0284c7; }
+
+/* Başlık Düzenlemeleri (Merkezi Ortalama) */
+h1, h2, .content-page h2 { text-align: center; color: #0284c7; margin-bottom: 25px; font-size: 28px; }
+
+/* Mizanpaj Düzeni: Kesin Olarak Önce Resim Üstte, Makale Altta */
+.hero-section { background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: white; padding: 40px; border-radius: 20px; margin-bottom: 40px; display: flex; flex-direction: column; align-items: center; }
+.hero-section h1 { color: white !important; font-size: 34px; text-align: center; }
+.hero-image, .framed-img { width: 100%; max-height: 450px; object-fit: cover; display: block; margin: 0 auto 30px auto; border: 3px solid rgba(2, 132, 199, 0.3); padding: 6px; background: white; border-radius: 20px; box-shadow: 0 20px 25px rgba(2,132,199,0.1); }
+
+/* 6'lı Hizmet Grid Sistemi */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 40px; }
+.service-card { background: #ffffff; border-radius: 16px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s; }
+.service-card:hover { transform: translateY(-5px); }
+.service-card h3 { color: #0f172a; font-size: 20px; margin-bottom: 12px; text-align: center; }
+.service-card img { width: 100%; height: 190px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; border: 1px solid #e2e8f0; }
+.btn-detail { display: inline-block; background-color: #e0f2fe; color: #0369a1; text-decoration: none; padding: 12px 20px; border-radius: 8px; text-align: center; font-weight: 600; margin-top: 15px; transition: 0.3s; border: none; width: 100%; }
+.btn-detail:hover { background-color: #0284c7; color: white; }
+/* 🎬 Detay Sayfaları Yapısı (Resim ve Video Üstte Yan Yana, Altında Makale) */
+.detail-container { display: flex; flex-direction: column; gap: 30px; }
+.detail-media-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; width: 100%; }
+.detail-media-layout img, .detail-media-layout iframe { width: 100%; height: 280px; object-fit: cover; border: 3px solid rgba(2, 132, 199, 0.3); padding: 6px; background: white; border-radius: 20px; box-shadow: 0 15px 20px rgba(0,0,0,0.05); }
+.detail-info { background: #ffffff; padding: 35px; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; width: 100%; text-align: justify; }
+
+/* İletişim */
+.contact-container { display: flex; gap: 30px; align-items: flex-start; }
+.contact-info-side { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+.contact-map-side { flex: 1; background: #ffffff; padding: 15px; border-radius: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+.contact-card-box { background: #ffffff; padding: 25px; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+.contact-card-box h3 { color: #0f172a; margin-bottom: 15px; font-size: 18px; border-bottom: 2px solid #f1f5f9; padding-bottom: 8px; }
+.contact-item { background: #f8fafc; padding: 12px 15px; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #0284c7; font-size: 15px; list-style: none; }
+.contact-item a { color: #0284c7; text-decoration: none; font-weight: 600; }
+.content-page { background: #ffffff; padding: 40px; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.tech-box { background: #ffffff; padding: 30px; border-radius: 16px; border-left: 5px solid #0284c7; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: justify; }
+.tech-box a { color: #0284c7; text-decoration: none; font-weight: 600; border-bottom: 1px dashed #0284c7; }
+
+/* 📉 SEO Alt Tag Alanı (Küçük ve Şık) */
+.seo-tags-footer { margin-top: 25px; padding-top: 15px; border-top: 1px dashed #cbd5e1; text-align: center; font-size: 11px; color: #94a3b8; letter-spacing: 0.5px; }
+
+/* 🔒 YENİLENEN SİMETRİK GÜVENLİK PANELİ (KAYMALARI ÖNLEYEN DÜZEN) */
+.admin-lock-screen { max-width: 450px; margin: 100px auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 20px 25px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; text-align: center; }
+.admin-lock-screen input { width: 100%; padding: 14px; margin: 12px 0; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 15px; outline: none; transition: 0.2s; }
+.admin-lock-screen input:focus { border-color: #0284c7; box-shadow: 0 0 0 3px rgba(2,132,199,0.1); }
+.admin-grid-layout { display: grid; grid-template-columns: 280px 1fr; gap: 30px; margin-top: 25px; width: 100%; }
+.admin-card-body { background: #ffffff; padding: 35px; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; width: 100%; }
+.form-group { margin-bottom: 22px; width: 100%; display: flex; flex-direction: column; }
+.form-group label { font-weight: 600; margin-bottom: 8px; color: #334155; font-size: 14px; text-align: left; }
+.form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 15px; outline: none; }
+.form-group input:focus, .form-group textarea:focus { border-color: #0284c7; }
+
+footer { text-align: center; padding: 25px; background-color: #0f172a; color: #94a3b8; font-size: 14px; width: 100%; }
+
+/* 📱 Mobil Tam Uyum Kuralları */
+@media (max-width: 768px) {
+    .menu-toggle { display: flex; }
+    .nav-links { display: none; flex-direction: column; width: 100%; position: absolute; top: 100%; left: 0; background-color: #ffffff; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); gap: 15px; }
+    .nav-links.active { display: flex; }
+    .contact-container, .admin-grid-layout { flex-direction: column; }
+    .hero-section { padding: 20px 15px; }
+    .hero-image, .framed-img { max-height: 240px; margin-bottom: 20px; }
+    .detail-media-layout img, .detail-media-layout iframe { height: 200px; }
+}
+/* <!-- STYLE CSS SONU --> */
